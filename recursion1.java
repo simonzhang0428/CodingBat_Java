@@ -7,9 +7,12 @@
 
 public int countHi(String str) {
     if (str.length() <= 1) return 0;
-    int count = 0;
-    if (str.substring(0, 2).equals("hi")) count = 1;  // could use startsWith()
-    return count + countHi(str.substring(1));
+    int index = str.indexOf("hi");
+    if (index < 0) {
+      return 0;
+    } else {
+      return 1 + countHi(str.substring(index + 2));
+    }
 }
 
 // We have a number of bunnies and each bunny has two big floppy ears. We want to compute the total number of ears across all the bunnies recursively (without loops or multiplication).
